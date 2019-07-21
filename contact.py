@@ -47,13 +47,23 @@ class Contact:
                 return contact
 
 
-    def update(self):
+    def update(self, attr_to_update, new_value):
         """ This method should allow you to specify
     1. which of the contact's attributes you want to update
     2. the new value for that attribute
     and then make the appropriate change to the contact
-    """
+    # """
+        if attr_to_update == 'first_name': 
+            self.first_name = new_value
+        if attr_to_update == 'last_name': 
+            self.last_name = new_value
+        if attr_to_update == 'email': 
+            self.email = new_value
+        if attr_to_update == 'note': 
+            self.note = new_value
 
+            
+           
     @classmethod
     def find_by(cls):
         """This method should work similarly to the find method above
@@ -86,4 +96,9 @@ contact2 = Contact.create('Bit', 'Bot', 'bitbot@bitmakerlabs.com', 'beep boop')
 # print(contact1.id)
 # print(contact2.id)
 # print(Contact.find(contact1.id))
+print(Contact.all())
+contact1.update('first_name', 'John')
+contact1.update('last_name', 'Smith')
+contact1.update('email', 'JohnSmith@smith.com')
+contact1.update('note', 'lorum lorem lorem lorem lorem')
 print(Contact.all())
