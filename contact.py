@@ -71,7 +71,7 @@ class Contact:
 contact1 = Contact("Betty", "Maker", "bettymakes@bitmakerlabs.com", "Loves Pokemon")
 # contact2 = Contact("Bart", "Maker", "bartmakes@bitmakerlabs.com", "Loves Fish")
 
-contact1.create("Bob", "Maker", "bob@gmail.com", "Likes Betty") 
+Contact.create("Bob", "Maker", "bob@gmail.com", "Likes Betty") 
 # contact2.create()
 print(Contact.contacts)
 print(contact1.next_id)
