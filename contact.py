@@ -32,7 +32,10 @@ class Contact:
     @classmethod
     def all(cls):
         """This method should return all of the existing contacts"""
-
+        all_contacts = [] 
+        for contact in cls.contacts: 
+            all_contacts.append(contact) 
+        return all_contacts
 
     @classmethod
     def find(cls, contact_id):
@@ -80,6 +83,7 @@ contact2 = Contact.create('Bit', 'Bot', 'bitbot@bitmakerlabs.com', 'beep boop')
 
 # print(Contact.contacts)
 # print(len(Contact.contacts))
-print(contact1.id)
+# print(contact1.id)
 # print(contact2.id)
-print(Contact.find(contact1.id))
+# print(Contact.find(contact1.id))
+print(Contact.all())
