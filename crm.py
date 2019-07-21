@@ -1,4 +1,4 @@
-from contact import Contact
+from contact import Contac
 
 class CRM:
 
