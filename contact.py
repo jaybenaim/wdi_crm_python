@@ -65,13 +65,30 @@ class Contact:
             
            
     @classmethod
-    def find_by(cls):
+    def find_by(cls, attribute, value):
         """This method should work similarly to the find method above
     but it should allow you to search for a contact using attributes other than id
     by specifying both the name of the attribute and the value
     eg. searching for 'first_name', 'Betty' should return the first contact named Betty
     """
+        if attribute == 'first_name': 
+            for contact in cls.contacts:
+                if contact.first_name == value:  
+                    return contact
+        if attribute == 'last_name': 
+            for contact in cls.contacts:
+                if contact.last_name == value:  
+                    return contact
+        if attribute == 'email': 
+            for contact in cls.contacts:
+                if contact.email == value:  
+                    return contact
+        if attribute == 'note': 
+            for contact in cls.contacts:
+                if contact.note == value:  
+                    return contact
 
+         
     @classmethod
     def delete_all(cls):
         """This method should delete all of the contacts"""
@@ -96,9 +113,11 @@ contact2 = Contact.create('Bit', 'Bot', 'bitbot@bitmakerlabs.com', 'beep boop')
 # print(contact1.id)
 # print(contact2.id)
 # print(Contact.find(contact1.id))
-print(Contact.all())
-contact1.update('first_name', 'John')
-contact1.update('last_name', 'Smith')
-contact1.update('email', 'JohnSmith@smith.com')
-contact1.update('note', 'lorum lorem lorem lorem lorem')
-print(Contact.all())
+# print(Contact.all())
+# contact1.update('first_name', 'John')
+# contact1.update('last_name', 'Smith')
+# contact1.update('email', 'JohnSmith@smith.com')
+# contact1.update('note', 'lorum lorem lorem lorem lorem')
+# print(Contact.all())
+
+print(Contact.find_by('note', 'beep boop'))
