@@ -33,11 +33,16 @@ class Contact:
     def all(cls):
         """This method should return all of the existing contacts"""
 
+
     @classmethod
-    def find(cls):
+    def find(cls, contact_id):
         """ This method should accept an id as an argument
     and return the contact who has that id
     """
+        for contact in cls.contacts:
+            if contact.id == contact_id:  
+                return contact
+
 
     def update(self):
         """ This method should allow you to specify
@@ -73,8 +78,8 @@ class Contact:
 contact1 = Contact.create('Betty', 'Maker', 'bettymakes@bitmakerlabs.com', 'Loves Pokemon')
 contact2 = Contact.create('Bit', 'Bot', 'bitbot@bitmakerlabs.com', 'beep boop')
 
-print(Contact.contacts)
-print(len(Contact.contacts))
+# print(Contact.contacts)
+# print(len(Contact.contacts))
 print(contact1.id)
-print(contact2.id)
-
+# print(contact2.id)
+print(Contact.find(contact1.id))
