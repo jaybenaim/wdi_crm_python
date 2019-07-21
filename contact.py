@@ -9,8 +9,9 @@ class Contact:
         self.email = email
         self.note = note
         self.id = Contact.next_id
-        Contact.next_id += 1 
-        Contact.contacts.append(self)
+        if self.first_name not in Contact.contacts and self.last_name not in Contact.contacts: 
+            Contact.next_id += 1 
+        # Contact.contacts.append(self)
        
 
     def __repr__(self):
@@ -68,12 +69,12 @@ class Contact:
     # Feel free to add other methods here, if you need them.
 
 
-contact1 = Contact("Betty", "Maker", "bettymakes@bitmakerlabs.com", "Loves Pokemon")
-# contact2 = Contact("Bart", "Maker", "bartmakes@bitmakerlabs.com", "Loves Fish")
 
-Contact.create("Bob", "Maker", "bob@gmail.com", "Likes Betty") 
-# contact2.create()
+contact1 = Contact.create('Betty', 'Maker', 'bettymakes@bitmakerlabs.com', 'Loves Pokemon')
+contact2 = Contact.create('Bit', 'Bot', 'bitbot@bitmakerlabs.com', 'beep boop')
+
 print(Contact.contacts)
-print(contact1.next_id)
-# print(contact2.next_id)
+print(len(Contact.contacts))
+print(contact1.id)
+print(contact2.id)
 
