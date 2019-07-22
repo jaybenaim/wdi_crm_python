@@ -91,6 +91,7 @@ class CRM:
         print()
 
     def search_by_attribute(self):
+        #which_search_method = ("Would you like to search by the 'attributes' or 'values'? \n").lower() 
         search_by_attribute = input("What attribute would you like to search for?\n ")
         search_by_value = input("Which value would you like to search for?\n")
 
