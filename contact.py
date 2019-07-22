@@ -110,8 +110,8 @@ class Contact:
 
 
 
-contact1 = Contact.create('Betty', 'Maker', 'bettymakes@bitmakerlabs.com', 'Loves Pokemon')
-contact2 = Contact.create('Bit', 'Bot', 'bitbot@bitmakerlabs.com', 'beep boop')
+# contact1 = Contact.create('Betty', 'Maker', 'bettymakes@bitmakerlabs.com', 'Loves Pokemon')
+# contact2 = Contact.create('Bit', 'Bot', 'bitbot@bitmakerlabs.com', 'beep boop')
 
 # print(Contact.contacts)
 # print(len(Contact.contacts))
@@ -128,8 +128,8 @@ contact2 = Contact.create('Bit', 'Bot', 'bitbot@bitmakerlabs.com', 'beep boop')
 # Contact.delete_all() 
 # print(Contact.all())
 
-print(contact1.full_name())
+# print(contact1.full_name())
 
-print(Contact.all())
-contact1.delete() 
-print(Contact.all())
+# print(Contact.all())
+# contact1.delete() 
+# print(Contact.all())
