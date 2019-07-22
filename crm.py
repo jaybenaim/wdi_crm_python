@@ -50,11 +50,15 @@ class CRM:
         Contact.create(first_name, last_name, email, note)
     
     def modify_existing_contact(self):
+        which_first_name_to_update = input("Which contact would you like to modify? \n Please enter a first name.\n ")
+        which_last_name_to_update = input("What is the last name of the person you are trying to modify? \n")
         attribute_to_update = input("What are you trying to change? \n (first_name, last_name, email, note)\n").lower()
         value = input("Which would you like to change it to?\n")
+        
         for contact in Contact.contacts: 
           if attribute_to_update == 'first_name':
-            contact.update(attribute_to_update, value)
+            if contact.first_name == which_first_name_to_update and contact.last_name == which_last_name_to_update: 
+              contact.update(attribute_to_update, value)
           elif attribute_to_update == 'last_name':
             contact.update(attribute_to_update, value)
           elif attribute_to_update == 'email':
@@ -88,8 +92,8 @@ class CRM:
 
 
 crm = CRM() 
-
 # crm.main_menu()
+
 Contact.create("Jacob", "Benaim", "B@m.com", "hi")
 # crm.delete_contact()
 crm.modify_existing_contact() 
