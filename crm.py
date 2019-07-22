@@ -1,28 +1,26 @@
 from contact import Contact
-import sys 
+import sys
+
 
 class CRM:
-
     def main_menu(self):
-      try: 
-        while True: 
-          self.print_main_menu()
-          user_selected = int(input())
-          self.call_option(user_selected)
-      except ValueError: 
-          sys.exit("Goodbye!") 
+        try:
+            while True:
+                self.print_main_menu()
+                user_selected = int(input())
+                self.call_option(user_selected)
+        except ValueError:
+            sys.exit("Goodbye!")
 
     def print_main_menu(self):
-        print('[1] Add a new contact')
-        print('[2] Modify an existing contact')
-        print('[3] Delete a contact')
-        print('[4] Display all the contacts')
-        print('[5] Search by attribute')
-        print('[6] Exit')
-        print('Enter a number: ')
+        print("[1] Add a new contact")
+        print("[2] Modify an existing contact")
+        print("[3] Delete a contact")
+        print("[4] Display all the contacts")
+        print("[5] Search by attribute")
+        print("[6] Exit")
+        print("Enter a number: ")
 
-
-    
     def call_option(self, user_selected):
         if user_selected == 1:
             self.add_new_contact()
@@ -35,71 +33,74 @@ class CRM:
         elif user_selected == 5:
             self.search_by_attribute()
         elif user_selected == 6:
-            sys.exit("Goodbye!") 
-        else: 
-          return 'You entered an invalid selection'
+            sys.exit("Goodbye!")
+        else:
+            return "You entered an invalid selection"
 
-    
-        
     def add_new_contact(self):
-        
-        first_name = input('Enter First Name:\n')
-        last_name = input('Enter Last Name:\n')
-        email = input('Enter Email Address:\n')
-        note = input('Enter a Note:\n')
+
+        first_name = input("Enter First Name:\n")
+        last_name = input("Enter Last Name:\n")
+        email = input("Enter Email Address:\n")
+        note = input("Enter a Note:\n")
         Contact.create(first_name, last_name, email, note)
-    
+
     def modify_existing_contact(self):
-        which_first_name_to_update = input("Which contact would you like to modify? \n Please enter a first name.\n ")
-        which_last_name_to_update = input("What is the last name of the person you are trying to modify? \n")
-        attribute_to_update = input("What are you trying to change? \n (first_name, last_name, email, note)\n").lower()
+        which_first_name_to_update = input(
+            "Which contact would you like to modify? \n Please enter a first name.\n "
+        )
+        which_last_name_to_update = input(
+            "What is the last name of the person you are trying to modify? \n"
+        )
+        attribute_to_update = input(
+            "What are you trying to change? \n (first_name, last_name, email, note)\n"
+        ).lower()
         value = input("Which would you like to change it to?\n")
-        
-        for contact in Contact.contacts: 
-          if contact.first_name == which_first_name_to_update and contact.last_name == which_last_name_to_update: 
-            if attribute_to_update == 'first_name':
-              contact.update(attribute_to_update, value)
-            elif attribute_to_update == 'last_name':
-              contact.update(attribute_to_update, value)
-            elif attribute_to_update == 'email':
-              contact.update(attribute_to_update, value)
-            elif attribute_to_update == 'note':
-              contact.update(attribute_to_update, value)
-            else: 
-              print('Error, You can not modify an item that does not exist.')
-        
+
+        for contact in Contact.contacts:
+            if (
+                contact.first_name == which_first_name_to_update
+                and contact.last_name == which_last_name_to_update
+            ):
+                if attribute_to_update == "first_name":
+                    contact.update(attribute_to_update, value)
+                elif attribute_to_update == "last_name":
+                    contact.update(attribute_to_update, value)
+                elif attribute_to_update == "email":
+                    contact.update(attribute_to_update, value)
+                elif attribute_to_update == "note":
+                    contact.update(attribute_to_update, value)
+                else:
+                    print("Error, You can not modify an item that does not exist.")
 
     def delete_contact(self):
         contact_to_delete = input("Which contact would you like to delete? \n")
-        for contact in Contact.contacts: 
-          if contact.first_name == contact_to_delete:
-            Contact.contacts.remove(contact)
-          elif contact.last_name == contact_to_delete: 
-            Contact.contacts.remove(contact)
-          elif contact.email == contact_to_delete: 
-            Contact.contacts.remove(contact)
-          elif contact.note == contact_to_delete: 
-            Contact.contacts.remove(contact)
-          
+        for contact in Contact.contacts:
+            if contact.first_name == contact_to_delete:
+                Contact.contacts.remove(contact)
+            elif contact.last_name == contact_to_delete:
+                Contact.contacts.remove(contact)
+            elif contact.email == contact_to_delete:
+                Contact.contacts.remove(contact)
+            elif contact.note == contact_to_delete:
+                Contact.contacts.remove(contact)
+
     def display_all_contacts(self):
-        print() 
+        print()
         print(Contact.all())
-        print() 
+        print()
 
-
-    
     def search_by_attribute(self):
         search_by_attribute = input("What attribute would you like to search for?\n ")
         search_by_value = input("Which value would you like to search for?\n")
-      
-        print(Contact.find_by(search_by_attribute, search_by_value)) 
 
-#########################_______TODO_________#######
+        print(Contact.find_by(search_by_attribute, search_by_value))
 
-crm = CRM() 
-# crm.main_menu()
 
-Contact.create("Jacob", "Benaim", "B@m.com", "hi")
+crm = CRM()
+crm.main_menu()
+
+# Contact.create("Jacob", "Benaim", "B@m.com", "hi")
 # crm.delete_contact()
-crm.search_by_attribute() 
+# crm.search_by_attribute()
 # print(Contact.all())
