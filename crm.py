@@ -56,17 +56,17 @@ class CRM:
         value = input("Which would you like to change it to?\n")
         
         for contact in Contact.contacts: 
-          if attribute_to_update == 'first_name':
-            if contact.first_name == which_first_name_to_update and contact.last_name == which_last_name_to_update: 
+          if contact.first_name == which_first_name_to_update and contact.last_name == which_last_name_to_update: 
+            if attribute_to_update == 'first_name':
               contact.update(attribute_to_update, value)
-          elif attribute_to_update == 'last_name':
-            contact.update(attribute_to_update, value)
-          elif attribute_to_update == 'email':
-            contact.update(attribute_to_update, value)
-          elif attribute_to_update == 'note':
-            contact.update(attribute_to_update, value)
-          else: 
-            print('Error, You can not modify an item that does not exist.')
+            elif attribute_to_update == 'last_name':
+              contact.update(attribute_to_update, value)
+            elif attribute_to_update == 'email':
+              contact.update(attribute_to_update, value)
+            elif attribute_to_update == 'note':
+              contact.update(attribute_to_update, value)
+            else: 
+              print('Error, You can not modify an item that does not exist.')
         
 
     def delete_contact(self):
