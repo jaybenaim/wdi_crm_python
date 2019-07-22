@@ -53,13 +53,13 @@ class Contact:
     2. the new value for that attribute
     and then make the appropriate change to the contact
     # """
-        if attr_to_update == 'first_name': 
+        if attr_to_update.lower() == 'first_name': 
             self.first_name = new_value
-        if attr_to_update == 'last_name': 
+        if attr_to_update.lower() == 'last_name': 
             self.last_name = new_value
-        if attr_to_update == 'email': 
+        if attr_to_update.lower() == 'email': 
             self.email = new_value
-        if attr_to_update == 'note': 
+        if attr_to_update.lower() == 'note': 
             self.note = new_value
 
             
