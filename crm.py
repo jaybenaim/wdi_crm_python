@@ -5,7 +5,7 @@ class CRM:
 
     def main_menu(self):
       try: 
-        while True: # repeat indefinitely
+        while True: 
           self.print_main_menu()
           user_selected = int(input())
           self.call_option(user_selected)
@@ -87,14 +87,19 @@ class CRM:
         print() 
 
 
-          #
-          # def search_by_attribute(self):
+    
+    def search_by_attribute(self):
+        search_by_attribute = input("What attribute would you like to search for?\n ")
+        search_by_value = input("Which value would you like to search for?\n")
+      
+        print(Contact.find_by(search_by_attribute, search_by_value)) 
 
+#########################_______TODO_________#######
 
 crm = CRM() 
 # crm.main_menu()
 
 Contact.create("Jacob", "Benaim", "B@m.com", "hi")
 # crm.delete_contact()
-crm.modify_existing_contact() 
-print(Contact.all())
+crm.search_by_attribute() 
+# print(Contact.all())
