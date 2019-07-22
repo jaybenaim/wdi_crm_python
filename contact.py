@@ -98,11 +98,13 @@ class Contact:
     def full_name(self):
         """Returns the full (first and last) name of the contact"""
         return f'{self.first_name} {self.last_name}'
-        
+
     def delete(self):
         """This method should delete the contact
     HINT: Check the Array class docs for built-in methods that might be useful here
     """
+        Contact.contacts.remove(self) 
+
 
     # Feel free to add other methods here, if you need them.
 
@@ -128,3 +130,6 @@ contact2 = Contact.create('Bit', 'Bot', 'bitbot@bitmakerlabs.com', 'beep boop')
 
 print(contact1.full_name())
 
+print(Contact.all())
+contact1.delete() 
+print(Contact.all())
