@@ -92,6 +92,8 @@ class Contact:
     @classmethod
     def delete_all(cls):
         """This method should delete all of the contacts"""
+        cls.contacts.clear() 
+        
 
     def full_name(self):
         """Returns the full (first and last) name of the contact"""
@@ -118,6 +120,7 @@ contact2 = Contact.create('Bit', 'Bot', 'bitbot@bitmakerlabs.com', 'beep boop')
 # contact1.update('last_name', 'Smith')
 # contact1.update('email', 'JohnSmith@smith.com')
 # contact1.update('note', 'lorum lorem lorem lorem lorem')
+# print(Contact.find_by('note', 'beep boop'))
 # print(Contact.all())
-
-print(Contact.find_by('note', 'beep boop'))
+# Contact.delete_all() 
+# print(Contact.all())
