@@ -49,17 +49,32 @@ class CRM:
         note = input('Enter a Note:\n')
         Contact.create(first_name, last_name, email, note)
     
-    # def modify_existing_contact(self):
-    #     attribute_to_update = input("Which attribute are you trying to change?\n")
-    #     value = input("Which value would you like to change?\n")
+    def modify_existing_contact(self):
+        attribute_to_update = input("What are you trying to change? \n (first_name, last_name, email, note)\n").lower()
+        value = input("Which would you like to change it to?\n")
+        for contact in Contact.contacts: 
+          if attribute_to_update == 'first_name':
+            contact.update(attribute_to_update, value)
+          elif attribute_to_update == 'last_name':
+            contact.update(attribute_to_update, value)
+          elif attribute_to_update == 'email':
+            contact.update(attribute_to_update, value)
+          elif attribute_to_update == 'note':
+            contact.update(attribute_to_update, value)
+          else: 
+            print('Error, You can not modify an item that does not exist.')
+        
 
-    #     Contact.update(attribute_to_update, value)
-          #
-          #
     def delete_contact(self):
         contact_to_delete = input("Which contact would you like to delete? \n")
         for contact in Contact.contacts: 
           if contact.first_name == contact_to_delete:
+            Contact.contacts.remove(contact)
+          elif contact.last_name == contact_to_delete: 
+            Contact.contacts.remove(contact)
+          elif contact.email == contact_to_delete: 
+            Contact.contacts.remove(contact)
+          elif contact.note == contact_to_delete: 
             Contact.contacts.remove(contact)
           
     def display_all_contacts(self):
@@ -67,7 +82,7 @@ class CRM:
         print(Contact.all())
         print() 
 
-        
+
           #
           # def search_by_attribute(self):
 
@@ -76,6 +91,6 @@ crm = CRM()
 
 # crm.main_menu()
 Contact.create("Jacob", "Benaim", "B@m.com", "hi")
-
-crm.delete_contact() 
+# crm.delete_contact()
+crm.modify_existing_contact() 
 print(Contact.all())

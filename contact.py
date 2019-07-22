@@ -62,6 +62,8 @@ class Contact:
         if attr_to_update.lower() == 'note': 
             self.note = new_value
 
+        return 
+
             
            
     @classmethod
