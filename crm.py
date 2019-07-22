@@ -52,24 +52,30 @@ class CRM:
     # def modify_existing_contact(self):
     #     attribute_to_update = input("Which attribute are you trying to change?\n")
     #     value = input("Which value would you like to change?\n")
-  
+
     #     Contact.update(attribute_to_update, value)
           #
           #
-          # def delete_contact(self):
-          #
-          #
+    def delete_contact(self):
+        contact_to_delete = input("Which contact would you like to delete? \n")
+        for contact in Contact.contacts: 
+          if contact.first_name == contact_to_delete:
+            Contact.contacts.remove(contact)
+          
     def display_all_contacts(self):
-
+        print() 
         print(Contact.all())
         print() 
-        
 
+        
           #
           # def search_by_attribute(self):
 
 
 crm = CRM() 
 
-crm.main_menu()
-# Contact.create("Jacob", "Benaim", "B@m.com", "hi")
+# crm.main_menu()
+Contact.create("Jacob", "Benaim", "B@m.com", "hi")
+
+crm.delete_contact() 
+print(Contact.all())
