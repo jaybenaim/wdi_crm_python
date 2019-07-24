@@ -2,7 +2,6 @@ from peewee import *
 
 db = SqliteDatabase('crm.db') 
 
-
 class Contact(Model):
 
     first_name = CharField() 
@@ -10,21 +9,27 @@ class Contact(Model):
     email = CharField() 
     note = TextField() 
 
+
     class Meta: 
-        database = db 
+        database = db  
 
     def full_name(self):
         """Returns the full (first and last) name of the contact"""
         return f"{self.first_name} {self.last_name}"
+    def __str__(self): 
+        return f'{self.first_name} {self.last_name} '
+    def __repr__(self): 
+        return f'{self.first_name} {self.last_name} '
+    
+     
+    db = SqliteDatabase('crm.db') 
+        
+
+
 
 db.connect()
 db.create_tables([Contact])
-
-
-
-
-
-
+# cur.execute("SELECT * FROM contact;")
 
 
 # class Contact:
