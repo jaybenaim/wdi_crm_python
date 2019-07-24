@@ -52,27 +52,7 @@ class CRM:
             note=note)
 
         
-# id_x = int(input('Enter your ID\n'))
-#     contact_finder = Contact.get(id=id_x)
 
-
-#     contact_attribute = input('Which attribute do you want to edit?: ')
-#     new_value = input('New value to be?: ') 
-
-
-#     if id_x == contact_finder.id:
-#       if contact_attribute == 'first name': 
-#         contact_finder.first_name = new_value
-#         contact_finder.save()
-#       elif contact_attribute == 'last name': 
-#         contact_finder.last_name = new_value
-#         contact_finder.save()
-#       elif contact_attribute == 'email': 
-#         contact_finder.email = new_value
-#         contact_finder.save()
-#       elif contact_attribute == 'note': 
-#         contact_finder.note = new_value
-#         contact_finder.save()
     def modify_existing_contact(self):
         
         user_id = input("Please enter your id number\n")
@@ -126,7 +106,7 @@ class CRM:
     def delete_contact(self):
         contact_to_delete = input("Which contact would you like to delete? \nEnter the id for the contact you wish to delete:\t")
         contact = Contact.get(id=contact_to_delete)
-        confirm = input('Are you sure you would like to delete this contact?\t (y/n).lower()
+        confirm = input('Are you sure you would like to delete this contact?\t (y/n)').lower()
         
         if confirm == 'y': 
             contact.delete_instance() 
@@ -134,16 +114,6 @@ class CRM:
         else: 
             self.main_menu() 
         
-        # for contact in Contact.contacts:
-        #     if contact.first_name == contact_to_delete:
-        #         Contact.contacts.remove(contact)
-        #     elif contact.last_name == contact_to_delete:
-        #         Contact.contacts.remove(contact)
-        #     elif contact.email == contact_to_delete:
-        #         Contact.contacts.remove(contact)
-        #     elif contact.note == contact_to_delete:
-        #         Contact.contacts.remove(contact)
-
     def display_all_contacts(self):
 
         cur = Contact.db.cursor()
